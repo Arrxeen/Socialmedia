@@ -3,6 +3,7 @@
 {% block content%}
 {% for post in posts %}
     <h2>{{ post.name }}</h2>
+    <img scr = '{{post.image.url}}'>
     <p>{{ post.content }}</p>
     <a href = "{{ post.link }}">link</a>
     <p>{{ post.date }}</p>

@@ -20,7 +20,8 @@ class CreatePostView(CreateView):
     def form_valid(self,form):
         data = form.data
         post = Post(name = data.get('name'), content = data.get('content'), link = data.get('link'), category_id = data.get('category'))
-        post.author = User.objects.get(pk=1)
+        # post.author = User.objects.get(pk=1)
+        post.author = self.request.user
         post.save()
         return redirect('home')
     def get_context_data(self, **kwargs: Any) -> dict:
