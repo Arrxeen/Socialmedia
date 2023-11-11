@@ -1,0 +1,23 @@
+{% include 'users/base.html'%}
+
+{% block title %}
+<title>Register</title>
+{% endblock%}
+{% block content%} 
+
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                {{form.non_field_errors}}
+                <div>
+                {% for f in form %}
+                    <label class="form-label">{{ f.label }}</label>
+                    <br>
+                    <div class="form-control">{{ f }}</div>
+                    <br>
+                    {{f.errors}}
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
+        {%endblock%}
+        

@@ -1,0 +1,18 @@
+{% include 'home/base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center">
+    <form action="{% url 'mkpost' %}" method="post">
+        {% csrf_token %}
+        {{form.non_field_errors}}
+        {% for f in form %}
+            <label class="form-label">{{ f.label }}</label>
+            <br>
+            <div class="form-control">{{ f }}</div>
+            <br>
+            {{f.errors}}
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock %}
