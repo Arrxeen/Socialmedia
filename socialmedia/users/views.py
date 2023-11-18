@@ -15,13 +15,12 @@ class RegisterUserView(CreateView):
         login(self.request, user=user)
         return redirect('home')
 
+
 class LoginUserView(LoginView):
     form_class = AuthenticationForm
     template_name = 'users/login.html'
 
 
-
 def exit(request):
     logout(request)
     return redirect('home')
-
